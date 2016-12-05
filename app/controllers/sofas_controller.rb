@@ -8,10 +8,10 @@ class SofasController < ApplicationController
 		@sofa = Sofa.new
 	end
 
-	def create
-		if logged_in?
-			@sofa = Sofa.find_by_id()
-		end
+	# def create
+	# 	if logged_in?
+	# 		@sofa = Sofa.find_by_id()
+	# 	end
 
-	end
+	# end
 end
