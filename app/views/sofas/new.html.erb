@@ -1,0 +1,22 @@
+<%= render partial: '/errors', locals: { object: @sofa } %>
+<%= form_for @sofa do |f| %>
+  <%= f.label :Style_Family  %>
+  <%= f.text_field :style_family  %><br>
+
+  <%= f.label :Configuration %>
+  <%= f.text_field :configuration  %><br>
+
+  <%= f.label :Fabric_Type %>
+  <%= f.text_field :fabric_type  %><br>
+
+  <%= f.label :fabric_style %>
+  <%= f.text_field :fabric_style  %><br>
+
+  <%= f.label :leg_style %>
+  <%= f.text_field :leg_style  %><br>
+
+  <%= f.label :customer_id_default_1 %>
+  <%= f.text_field :customer_id  %><br>
+
+  <%= f.submit "Create New Sofa" %>
+<% end %>
