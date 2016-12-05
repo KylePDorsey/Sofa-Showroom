@@ -1,24 +1,9 @@
-# README
+# Sofa-Showroom
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This webapp is designed to assist the salesmen working at Interior Define. This app will allow you to create a user, customer, and sofas.  Once logged in a user has the ability to find links to physical sofa images quickly to assist the customer in purchasing the correct sofa. The user will also have the ability to tag sofas or configurations of sofas that an individual customer is interested in. 
 
-Things you may want to cover:
+* ruby 2.3.2p217
 
-* Ruby version
+* PostgreSQL
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

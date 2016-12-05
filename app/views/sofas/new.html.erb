@@ -1,5 +1,5 @@
 <%= render partial: '/errors', locals: { object: @sofa } %>
-<%= form_for @sofa do |f| %>
+<%= form_for @sofa, url: sofas_path, html: { multipart: true } do |f| %>
   <%= f.label :Style_Family  %>
   <%= f.text_field :style_family  %><br>
 
@@ -17,6 +17,8 @@
 
   <%= f.label :customer_id_default_1 %>
   <%= f.text_field :customer_id  %><br>
+
+  <%= form.file_field :avatar %>
 
   <%= f.submit "Create New Sofa" %>
 <% end %>

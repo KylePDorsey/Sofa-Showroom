@@ -8,6 +8,9 @@
 			<li> <%= sofa_info.fabric_type %> </li>
 			<li> <%= sofa_info.fabric_style %> </li>
 			<li> <%= sofa_info.leg_style %> </li>
+			<% if sofa_info.avatar %>
+				<%= image_tag sofa_info.avatar.url(:medium) %>
+			<% end %>
 		<% end %> 
 	</ul>
 <% end %>
