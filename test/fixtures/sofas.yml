@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  style_family: MyString
+  configuration: MyString
+  fabric_type: MyString
+  fabric_style: MyString
+  leg_style: MyString
+  customer_id: 1
+
+two:
+  style_family: MyString
+  configuration: MyString
+  fabric_type: MyString
+  fabric_style: MyString
+  leg_style: MyString
+  customer_id: 1
