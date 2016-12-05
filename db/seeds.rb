@@ -12,3 +12,6 @@ User.create(first_name: "Kyle", last_name: "Dorsey", email: "k@gmail.com", passw
 
 Customer.connection
 Customer.create(user_id: 1, first_name: "Jim", last_name: "Bob")
+
+Sofa.connection
+Sofa.create(style_family: "walters", configuration: "left chaise", fabric_type: "ash", fabric_style: "coarse", leg_style: "chrome", customer_id: 1)

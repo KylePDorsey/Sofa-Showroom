@@ -1,0 +1,13 @@
+<h2> Welcome to Sofa-Showroom </h2>
+
+<% if @sofa %>
+	<ul>
+		<% @sofa.each do |sofa_info| %>
+			<h5> <%= sofa_info.style_family %> </h5>
+			<li> <%= sofa_info.configuration %> </li>
+			<li> <%= sofa_info.fabric_type %> </li>
+			<li> <%= sofa_info.fabric_style %> </li>
+			<li> <%= sofa_info.leg_style %> </li>
+		<% end %> 
+	</ul>
+<% end %>
