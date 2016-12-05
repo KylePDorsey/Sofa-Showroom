@@ -9,6 +9,7 @@ class SofasController < ApplicationController
 	end
 
 	def create
+		p sofa_params
 		if logged_in?
 			@sofa = Sofa.new(sofa_params)
 			if @sofa.save
@@ -23,6 +24,6 @@ class SofasController < ApplicationController
 	private
 
 	def sofa_params
-		params.require(:sofa).permit(:style_name, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
+		params.require(:sofa).permit(:avatar, :style_name, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
 	end
 end
