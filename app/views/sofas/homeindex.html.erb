@@ -1,9 +1,9 @@
-<h2> Welcome to Sofa-Showroom </h2>
+<h1> Welcome to Sofa-Showroom </h1>
 
 <% if @sofa %>
 	<ul>
 		<% @sofa.each do |sofa_info| %>
-			<h5> <%= sofa_info.style_family %> </h5>
+			<h2> <%= sofa_info.style_family %> </h2>
 			<li> <%= sofa_info.configuration %> </li>
 			<li> <%= sofa_info.fabric_type %> </li>
 			<li> <%= sofa_info.fabric_style %> </li>
