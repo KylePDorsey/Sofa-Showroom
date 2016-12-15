@@ -24,6 +24,6 @@ class SofasController < ApplicationController
 	private
 
 	def sofa_params
-		params.require(:sofa).permit(:avatar, :style_name, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
+		params.require(:sofa).permit(:avatar, :style_family, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
 	end
 end

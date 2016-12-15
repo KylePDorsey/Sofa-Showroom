@@ -3,7 +3,7 @@
 <% if @sofa %>
 	<ul>
 		<% @sofa.each do |sofa_info| %>
-			<h2> <%= sofa_info.style_family %> </h2>
+			<li> <%= sofa_info.style_family %> </li>
 			<li> <%= sofa_info.configuration %> </li>
 			<li> <%= sofa_info.fabric_type %> </li>
 			<li> <%= sofa_info.fabric_style %> </li>
@@ -13,4 +13,4 @@
 			<% end %>
 		<% end %> 
 	</ul>
-<% end %>s
+<% end %>
