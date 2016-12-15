@@ -7,4 +7,10 @@ class Sofa < ApplicationRecord
 	validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 	
+	scope :style_family, -> (style_family) { where style_family: style_family }
+  	scope :configuration, -> (configuration) { where configuration: configuration }
+	scope :fabric_type, -> (fabric_type) { where fabric_type: fabric_type }
+  	scope :fabric_style, -> (fabric_style) { where fabric_style: fabric_style }
+	scope :leg_style, -> (leg_style) { where leg_style: leg_style }
+  	scope :customer_id, -> (customer_id) { where customer_id: customer_id }
 end

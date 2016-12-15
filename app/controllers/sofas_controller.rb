@@ -8,6 +8,13 @@ class SofasController < ApplicationController
 		@sofa = Sofa.new
 	end
 
+	def index
+	  @sofa = Sofa.where(nil)
+	  filtering_params(params).each do |key, value|
+	    @sofa = @sofa.public_send(key, value) if value.present?
+	  end
+	end
+
 	def create
 		p sofa_params
 		if logged_in?
@@ -22,6 +29,10 @@ class SofasController < ApplicationController
 	end
 
 	private
+
+	def filtering_params(params)
+	  params.slice(:style_family, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
+	end
 
 	def sofa_params
 		params.require(:sofa).permit(:avatar, :style_family, :configuration, :fabric_type, :fabric_style, :leg_style, :customer_id)
