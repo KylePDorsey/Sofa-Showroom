@@ -9,60 +9,19 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
-<!--   	<header>
-  		<nav class="navbar">
-  			<%= link_to "Sofa Supply", root_path, class: "navbar-brand" %>
-  			<% if logged_in? %>
-  				<div>
-		          <li><%= current_user.email %></li>
-		          <%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy %></li>
-	  			</div>
-			<% else %>
-				<a><%= link_to "Register", new_user_path %></a>
-	        	<a><%= link_to "Log In", new_session_path %></a>
-			<% end %>
-  		</nav>
-  	</header> -->
 
   	<ul id="nav">
-  		<li class="nav-list"><a class="active" href="#home">Home</a></li>
-  		<li class="nav-list"><a href="#news">News</a></li>
-  		<li class="nav-list"><a href="#contact">Contact</a></li>
-  		<li class="nav-list"><a href="#about">About</a></li>
+  		<%= link_to "Sofa Supply", root_path, class: "navbar-brand" %>
+  		<% if logged_in? %>
+  			<li class="nav-list"><%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy %></li>
+	  		<li class="nav-list"><%= current_user.email%></li>
+  		<% else %>
+	  		<li class="nav-list"><%= link_to "Register", new_user_path %></li>
+	  		<li class="nav-list"><%= link_to "Log In", new_session_path %></li>
+	  		
+  		<% end %>
 	</ul>
 
- <!--  	<header>
-  		<nav class="navbar">
-  			<a><%= link_to "Sofa Supply", root_path, class: "navbar-brand" %></a>
-  				<ul class="nav navbar-nav">
-		  		<% if logged_in? %>
-		  			<li class="nav-item">
-		          		<a href="sofas/new" class="nav-link"> Add Sofa</a>
-		         	</li>
-		  			<li><%= link_to "Add Sofa", new_sofa_path%></li>
-		    	</ul>
-    			<ul class="nav navbar-nav navbar-right">
-	  				<li class="nav-item">
-		          		<a class="nav-link"><span class="glyphicon glyphicon-user"></span> <%= current_user.email %></a>
-		         	</li>
-		         	<li class="nav-item">
-		          		<li class="CUSTOM-BUTTON-CLASS"><%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy %></li>
-		         	</li>
-		         </ul>
-		        <% else %>
-		        </ul>
-		         <ul class="nav navbar-nav navbar-right">
-			        <li class="nav-item">
-			          	<a class="nav-link"><%= link_to "Register", new_user_path %></a>
-			        </li>
-			        <li class="nav-item">
-			          	<a class="nav-link"><%= link_to "Log In", new_session_path%></a>
-			        </li>
-
-		        <% end %>
-	        	</ul>
-	    </nav>
-  	</header> -->
   <body class="content">
     <%= yield %>
   </body>
