@@ -7,7 +7,7 @@
 			<li> <%= sofa_info.fabric_style %> </li>
 			<li> <%= sofa_info.leg_style %> </li>
 			<% if sofa_info.avatar.exists? %>
-				<%= image_tag sofa_info.avatar.url(:medium) %>
+				<%= image_tag sofa_info.avatar.url(:medium), :class => :".img-rounded" %>
 			<% end %>
 		<% end %> 
 	</ul>
