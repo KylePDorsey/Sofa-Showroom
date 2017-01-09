@@ -1,35 +1,6 @@
 <div id="sofa-filter">
-<h5>Find a Sofa Image</h5>
-	<div class="form-group">
-	<form action="/sofas" method="GET">
-	  <label for="style_family_sel">Style Family:</label>
-	  <select class="form-control" id="style_family_sel">
-		  <option>Any</option>
-	  	<% Sofa.sofa_families.each do |sofa_family| %>
-	    	<option><%= sofa_family.capitalize %></option>
-		<% end %>
-	  </select>
-
-	  <label for="config_sel">Configuration:</label>
-	  <select class="form-control" id="config_sel">
-	  	<option>Any</option>
-	  	<% Sofa.sofa_configuration.each do |configuration_option| %>
-	    	<option><%= configuration_option.capitalize %></option>
-		<% end %>
-	  </select>
-
-	  <label for="fabric_type_sel">Fabric Type:</label>
-	  <select class="form-control" id="fabric_type_sel">
-	  	<option>Any</option>
-	  	<% Sofa.sofa_fabric_type.each do |fabric_options| %>
-	    	<option><%= fabric_options.capitalize %></option>
-		<% end %>
-	  </select>
-	  <input type="submit" value="Submit">
-	  </form>
-	</div>	
+<h3>Find a Sofa</h3>
 </div>
-
 <div class="grid-container">
 	<h2>Welcome to Sofa-Showroom </h2>
 

@@ -1,43 +1,20 @@
 <div id="sofa-filter">
-<h5>Find a Sofa Image</h5>
-	<div class="form-group">
-	<form action="/sofas" method="GET">
-	  <label for="style_family_sel">Style Family:</label>
-	  <select class="form-control" id="style_family_sel">
-		  <option>Any</option>
-	  	<% Sofa.sofa_families.each do |sofa_family| %>
-	    	<option><%= sofa_family.capitalize %></option>
-		<% end %>
-	  </select>
-
-	  <label for="config_sel">Configuration:</label>
-	  <select class="form-control" id="config_sel">
-	  	<option>Any</option>
-	  	<% Sofa.sofa_configuration.each do |configuration_option| %>
-	    	<option><%= configuration_option.capitalize %></option>
-		<% end %>
-	  </select>
-
-	  <label for="fabric_type_sel">Fabric Type:</label>
-	  <select class="form-control" id="fabric_type_sel">
-	  	<option>Any</option>
-	  	<% Sofa.sofa_fabric_type.each do |fabric_options| %>
-	    	<option><%= fabric_options.capitalize %></option>
-		<% end %>
-	  </select>
-	  <input type="submit" value="Submit">
-	  </form>
-
-
-	</div>	
+	<h5>Find a Sofa Image</h5>
+	<%= form_tag '', :method => :get do %>
+	  <%= label_tag 'Style_Family'%>
+	  <%= select_tag 'style_family', options_for_select(@sofa_families.unshift('Any'))%>
+	  <%= label_tag 'Configuration'%>
+	  <%= select_tag 'configuration', options_for_select(@sofa_configuration.unshift('Any'))%>
+	  <%= label_tag 'Fabric_Type'%>
+	  <%= select_tag 'fabric_type', options_for_select(@sofa_fabric_type.unshift('Any'))%>
+	  <%= label_tag 'Fabric_Style'%>
+	  <%= select_tag 'fabric_style', options_for_select(@sofa_fabric_style.unshift('Any'))%>
+	  <%= label_tag 'Leg_Style'%>
+	  <%= select_tag 'leg_style', options_for_select(@sofa_leg_style.unshift('Any'))%>
+	  <%= submit_tag 'Filter', name: nil %>
+	<% end %>
 </div>
 
-<%= form_tag '', :method => :get do %>
-  <%= label_tag 'Style_Family'%>
-  <%= select_tag 'style_family', options_for_select(@sofa_families.unshift('Default'))%>
-  <%= text_field_tag :configuration %>
-  <%= submit_tag 'Filter', name: nil %>
-<% end %>
 
 
 <div class="grid-container">
