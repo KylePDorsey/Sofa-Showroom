@@ -1,0 +1,70 @@
+/** {
+	border: 1px dashed red;
+}*/
+
+
+
+ul#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: gray;
+    width: 100%;
+}
+
+li.nav-list {
+    float: right;
+}
+
+li.nav-list a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.nav-list a:hover {
+    background-color: #111;
+}
+
+.navbar-brand {
+	color: white;
+	font-size: 30px;
+}
+
+
+.username {
+	color: white;
+}
+
+.card-img {
+	width: 96%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 2%;
+}
+
+body {
+	background-color: #f7f9fc;
+}
+
+#sofa-filter {    
+  width: 15%;
+  float: left;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+  margin-left: 1%;
+}
+
+.grid-container{
+  width: 80%;
+  float: right;
+  margin: 0;
+  margin-right: 1%;
+  padding: 0;
+  display: inline;     
+}

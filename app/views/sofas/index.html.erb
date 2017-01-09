@@ -1,0 +1,42 @@
+<div id="sofa-filter">
+	<h5>Find a Sofa Image</h5>
+	<%= form_tag '', :method => :get do %>
+	  <%= label_tag 'Style_Family'%>
+	  <%= select_tag 'style_family', options_for_select(@sofa_families.unshift('Any'))%>
+	  <%= label_tag 'Configuration'%>
+	  <%= select_tag 'configuration', options_for_select(@sofa_configuration.unshift('Any'))%>
+	  <%= label_tag 'Fabric_Type'%>
+	  <%= select_tag 'fabric_type', options_for_select(@sofa_fabric_type.unshift('Any'))%>
+	  <%= label_tag 'Fabric_Style'%>
+	  <%= select_tag 'fabric_style', options_for_select(@sofa_fabric_style.unshift('Any'))%>
+	  <%= label_tag 'Leg_Style'%>
+	  <%= select_tag 'leg_style', options_for_select(@sofa_leg_style.unshift('Any'))%>
+	  <%= submit_tag 'Filter', name: nil %>
+	<% end %>
+</div>
+
+
+
+<div class="grid-container">
+	<h2>Welcome to Sofa-Showroom </h2>
+
+
+	<% if @sofa %>
+		<div class="grid">
+		  <% @sofa.each_slice(3)  do |sofa_group| %>
+		    <div class="row">
+		    <% sofa_group.each  do |sofa_info| %>
+		      <div class="col-sm-6 col-lg-4">
+					<figure class="card">
+						<img class="card-img" src=<%=sofa_info.avatar.url(:medium)%> alt="Sofa Image Not Found">
+						    <figcaption>
+						        	<p><%= sofa_info.style_family.capitalize %>, <%= sofa_info.configuration.capitalize %>, <%= sofa_info.fabric_type.capitalize %>, <%= sofa_info.fabric_style.capitalize %>, <%= sofa_info.leg_style.capitalize %></p>
+					      </figcaption>
+					</figure>
+		      </div>
+		    <% end %>
+		    </div>
+		  <% end %>
+		</div>
+	<% end %>
+</div>
