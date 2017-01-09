@@ -6,14 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 
   	<ul id="nav">
   		<%= link_to "Sofa Supply", root_path, class: "navbar-brand" %>
   		<% if logged_in? %>
   			<li class="nav-list"><%= button_to "Log Out", session_path(current_user.id), :method=>:delete, :class=>:destroy %></li>
+	  		<li class="nav-list"><%= link_to "Add Sofa", new_sofa_path%></li>
 	  		<li class="nav-list"><%= current_user.email%></li>
   		<% else %>
 	  		<li class="nav-list"><%= link_to "Register", new_user_path %></li>

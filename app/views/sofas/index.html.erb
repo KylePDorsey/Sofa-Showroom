@@ -1,14 +1,65 @@
-<% if @sofa %>
-	<ul>
-		<% @sofa.each do |sofa_info| %>
-			<li> <%= sofa_info.style_family %> </li>
-			<li> <%= sofa_info.configuration %> </li>
-			<li> <%= sofa_info.fabric_type %> </li>
-			<li> <%= sofa_info.fabric_style %> </li>
-			<li> <%= sofa_info.leg_style %> </li>
-			<% if sofa_info.avatar.exists? %>
-				<%= image_tag sofa_info.avatar.url(:medium), :class => :".img-rounded" %>
-			<% end %>
-		<% end %> 
-	</ul>
+<div id="sofa-filter">
+<h5>Find a Sofa Image</h5>
+	<div class="form-group">
+	<form action="/sofas" method="GET">
+	  <label for="style_family_sel">Style Family:</label>
+	  <select class="form-control" id="style_family_sel">
+		  <option>Any</option>
+	  	<% Sofa.sofa_families.each do |sofa_family| %>
+	    	<option><%= sofa_family.capitalize %></option>
+		<% end %>
+	  </select>
+
+	  <label for="config_sel">Configuration:</label>
+	  <select class="form-control" id="config_sel">
+	  	<option>Any</option>
+	  	<% Sofa.sofa_configuration.each do |configuration_option| %>
+	    	<option><%= configuration_option.capitalize %></option>
+		<% end %>
+	  </select>
+
+	  <label for="fabric_type_sel">Fabric Type:</label>
+	  <select class="form-control" id="fabric_type_sel">
+	  	<option>Any</option>
+	  	<% Sofa.sofa_fabric_type.each do |fabric_options| %>
+	    	<option><%= fabric_options.capitalize %></option>
+		<% end %>
+	  </select>
+	  <input type="submit" value="Submit">
+	  </form>
+
+
+	</div>	
+</div>
+
+<%= form_tag '', :method => :get do %>
+  <%= label_tag 'Style_Family'%>
+  <%= select_tag 'style_family', options_for_select(@sofa_families.unshift('Default'))%>
+  <%= text_field_tag :configuration %>
+  <%= submit_tag 'Filter', name: nil %>
 <% end %>
+
+
+<div class="grid-container">
+	<h2>Welcome to Sofa-Showroom </h2>
+
+
+	<% if @sofa %>
+		<div class="grid">
+		  <% @sofa.each_slice(3)  do |sofa_group| %>
+		    <div class="row">
+		    <% sofa_group.each  do |sofa_info| %>
+		      <div class="col-sm-6 col-lg-4">
+					<figure class="card">
+						<img class="card-img" src=<%=sofa_info.avatar.url(:medium)%> alt="Sofa Image Not Found">
+						    <figcaption>
+						        	<p><%= sofa_info.style_family.capitalize %>, <%= sofa_info.configuration.capitalize %>, <%= sofa_info.fabric_type.capitalize %>, <%= sofa_info.fabric_style.capitalize %>, <%= sofa_info.leg_style.capitalize %></p>
+					      </figcaption>
+					</figure>
+		      </div>
+		    <% end %>
+		    </div>
+		  <% end %>
+		</div>
+	<% end %>
+</div>

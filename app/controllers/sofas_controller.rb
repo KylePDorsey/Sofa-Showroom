@@ -1,7 +1,9 @@
 class SofasController < ApplicationController
+skip_before_action :verify_authenticity_token
 
 	def homeindex
 		@sofa = Sofa.all
+		# @sofa_families = sofa_families
 	end
 
 	def new 
@@ -9,9 +11,12 @@ class SofasController < ApplicationController
 	end
 
 	def index
+		p params
+		p "-----------------------------"
+	  p @sofa_families = Sofa.sofa_families
 	  @sofa = Sofa.where(nil)
 	  filtering_params(params).each do |key, value|
-	    @sofa = @sofa.public_send(key, value) if value.present?
+		@sofa = @sofa.public_send(key, value.downcase) if value.present? && value != 'Default'
 	  end
 	end
 

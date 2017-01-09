@@ -13,4 +13,24 @@ class Sofa < ApplicationRecord
   	scope :fabric_style, -> (fabric_style) { where fabric_style: fabric_style }
 	scope :leg_style, -> (leg_style) { where leg_style: leg_style }
   	scope :customer_id, -> (customer_id) { where customer_id: customer_id }
+
+
+
+  	def self.sofa_families
+  		families_array = []
+  		Sofa.all.each {|sofa| families_array << sofa.style_family.capitalize}
+  		families_array.uniq
+  	end
+
+  	def self.sofa_configuration
+  		configuration_array = []
+  		Sofa.all.each {|sofa| configuration_array << sofa.configuration}
+  		configuration_array.uniq
+  	end
+
+  	def self.sofa_fabric_type
+  		fabric_type = []
+  		Sofa.all.each {|sofa| fabric_type << sofa.fabric_type}
+  		fabric_type.uniq
+  	end
 end

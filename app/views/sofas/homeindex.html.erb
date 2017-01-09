@@ -1,101 +1,55 @@
-
-<h3>Welcome to Sofa-Showroom </h3>
-
-<% if @sofa %>
-	<div>
-		<% @sofa.each do |sofa_info| %>
-			<a href=<%= sofa_info.avatar.url(:medium)%>>
-				<figure>
-					<img src=<%=sofa_info.avatar.url(:medium)%> alt="">
-					    <figcaption>
-					        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-				      </figcaption>
-				</figure>
+<div id="sofa-filter">
+<h5>Find a Sofa Image</h5>
+	<div class="form-group">
+	<form action="/sofas" method="GET">
+	  <label for="style_family_sel">Style Family:</label>
+	  <select class="form-control" id="style_family_sel">
+		  <option>Any</option>
+	  	<% Sofa.sofa_families.each do |sofa_family| %>
+	    	<option><%= sofa_family.capitalize %></option>
 		<% end %>
-	</div>
-<% end %>
+	  </select>
 
-<div>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg01.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg01.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg02.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg02.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg03.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg03.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg04.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg04.jpg" alt="">
-      <figcaption>
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg05.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg05.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg06.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg06.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg07.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg07.jpg" alt="">
-       <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg08.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg08.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg09.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg09.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
-  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg10.jpg">
-    <figure>
-      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/123941/placeimg10.jpg" alt="">
-      <figcaption>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </figcaption>
-    </figure>
-  </a>
+	  <label for="config_sel">Configuration:</label>
+	  <select class="form-control" id="config_sel">
+	  	<option>Any</option>
+	  	<% Sofa.sofa_configuration.each do |configuration_option| %>
+	    	<option><%= configuration_option.capitalize %></option>
+		<% end %>
+	  </select>
+
+	  <label for="fabric_type_sel">Fabric Type:</label>
+	  <select class="form-control" id="fabric_type_sel">
+	  	<option>Any</option>
+	  	<% Sofa.sofa_fabric_type.each do |fabric_options| %>
+	    	<option><%= fabric_options.capitalize %></option>
+		<% end %>
+	  </select>
+	  <input type="submit" value="Submit">
+	  </form>
+	</div>	
 </div>
 
-<p class="p">Demo by George Martsoukos. <a href="http://www.sitepoint.com/using-modern-css-to-build-a-responsive-image-grid/" target="_blank">See article</a>.</p>
+<div class="grid-container">
+	<h2>Welcome to Sofa-Showroom </h2>
+
+
+	<% if @sofa %>
+		<div class="grid">
+		  <% @sofa.each_slice(3)  do |sofa_group| %>
+		    <div class="row">
+		    <% sofa_group.each  do |sofa_info| %>
+		      <div class="col-sm-6 col-lg-4">
+					<figure class="card">
+						<img class="card-img" src=<%=sofa_info.avatar.url(:medium)%> alt="Sofa Image Not Found">
+						    <figcaption>
+						        	<p><%= sofa_info.style_family.capitalize %>, <%= sofa_info.configuration.capitalize %>, <%= sofa_info.fabric_type.capitalize %>, <%= sofa_info.fabric_style.capitalize %>, <%= sofa_info.leg_style.capitalize %></p>
+					      </figcaption>
+					</figure>
+		      </div>
+		    <% end %>
+		    </div>
+		  <% end %>
+		</div>
+	<% end %>
+</div>
